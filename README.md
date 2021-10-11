@@ -1,2 +1,0 @@
-# ScrollAnimation
-React Scroll Animation
