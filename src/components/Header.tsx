@@ -2,22 +2,22 @@ import React from 'react';
 import styled from 'styled-components';
 
 const S = {
-  Wrapper: styled.div`
-    width: 100%;
+  Wrapper: styled.section`
+    display: flex;
+    justify-content: center;
     position: sticky;
+    position: -webkit-sticky;
+    width: 100%;
     top: 0;
     z-index: 100;
     background-color: white;
-    display: flex;
-    justify-content: center;
   `,
   Header: styled.header`
+    display: flex;
+    align-items: center;
     width: 100%;
     max-width: 1180px;
     height: 80px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
   `,
   Logo: styled.span`
     flex: 0 0 25%;
@@ -25,10 +25,10 @@ const S = {
     font-weight: bold;
   `,
   ButtonWrapper: styled.div`
-    flex: 0 0 25%;
-    max-width: 25%;
     display: flex;
     justify-content: flex-end;
+    flex: 0 0 25%;
+    max-width: 25%;
   `,
   Button: styled.button`
     width: 100px;
@@ -41,10 +41,10 @@ const S = {
     background-color: #2980b9;
   `,
   Navi: styled.div`
-    flex: 0 0 50%;
-    max-width: 50%;
     display: flex;
     justify-content: center;
+    flex: 0 0 50%;
+    max-width: 50%;
   `,
   NaviItem: styled.a`
     color: black;
@@ -56,20 +56,20 @@ const S = {
   `,
 };
 
-const NaviItems = ['Home', 'About', 'Detail', 'Contact'];
+const NaviItems = ['Home', 'About', 'Models', 'Services', 'Contact'];
 
 const Header = () => {
   return (
     <S.Wrapper>
       <S.Header>
-        <S.Logo>Scroll</S.Logo>
+        <S.Logo>BMW</S.Logo>
         <S.Navi>
           {NaviItems.map((item) => (
             <S.NaviItem key={item}>{item}</S.NaviItem>
           ))}
         </S.Navi>
         <S.ButtonWrapper>
-          <S.Button>Login</S.Button>
+          <S.Button>Buy Now</S.Button>
         </S.ButtonWrapper>
       </S.Header>
     </S.Wrapper>
