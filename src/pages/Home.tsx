@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Footer, Services, Main } from '@src/components';
+import { Header, Footer, Services, Main, Count } from '@src/components';
 
 const Home = () => {
   return (
@@ -7,6 +7,7 @@ const Home = () => {
       <Header />
       <Main />
       <Services />
+      <Count />
       <Footer />
     </>
   );

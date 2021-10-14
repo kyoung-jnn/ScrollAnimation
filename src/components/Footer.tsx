@@ -7,6 +7,7 @@ const S = {
     justify-content: space-between;
     width: 100%;
     max-width: 1180px;
+    margin: auto;
     padding: 120px 0 30px;
   `,
   Info: styled.div`

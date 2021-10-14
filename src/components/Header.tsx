@@ -39,6 +39,7 @@ const S = {
     outline: none;
     color: white;
     background-color: #2980b9;
+    cursor: pointer;
   `,
   Navi: styled.div`
     display: flex;

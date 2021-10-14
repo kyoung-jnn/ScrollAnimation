@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import useScrollFadeIn from '@src/hooks/useScrollFadeIn';
 
 const S = {
   Wrapper: styled.section`
@@ -7,21 +8,22 @@ const S = {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: auto;
     width: 100%;
+    margin-top: 800px;
     max-width: 1180px;
-    margin-top: 700px;
   `,
   Label: styled.p`
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 900;
     font-family: 'Gelasio', serif;
     text-align: center;
     margin-bottom: 1rem;
     color: #2980b9;
   `,
-  Title: styled.h2`
+  Title: styled.p`
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 900;
     font-family: 'Gelasio', serif;
     text-align: center;
     margin-bottom: 2rem;
@@ -31,18 +33,19 @@ const S = {
     display: flex;
     justify-content: space-between;
   `,
-  Service: styled.li`
+  ServiceItem: styled.li`
     display: flex;
     flex-direction: column;
     width: 350px;
     padding: 1rem;
-    background-color: #ecf0f1;
-    box-shadow: 10px 10px 16px 8px rgba(0, 0, 0, 0.03);
+    background-color: #fcfeff;
+    box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.03);
     border-radius: 0.5rem;
     cursor: pointer;
   `,
   ServiceTitle: styled.h2`
     font-size: 1.2rem;
+    font-weight: 900;
     margin-bottom: 1rem;
   `,
   ServiceDescription: styled.p`
@@ -73,6 +76,15 @@ const ServicesItems = [
 ];
 
 const Services = () => {
+  interface Ianimate {
+    [key: number]: any;
+  }
+  const animatedService: Ianimate = {
+    0: useScrollFadeIn('up', 1, 0),
+    1: useScrollFadeIn('up', 1, 0.2),
+    2: useScrollFadeIn('up', 1, 0.4),
+  };
+
   return (
     <S.Wrapper>
       <S.Label>BMW</S.Label>
@@ -81,11 +93,11 @@ const Services = () => {
         <br /> dictum diam.
       </S.Title>
       <S.ServiceWrapper>
-        {ServicesItems.map((item) => (
-          <S.Service key={item.title}>
+        {ServicesItems.map((item, index) => (
+          <S.ServiceItem key={item.title} {...animatedService[index]}>
             <S.ServiceTitle>{item.title}</S.ServiceTitle>
             <S.ServiceDescription>{item.description}</S.ServiceDescription>
-          </S.Service>
+          </S.ServiceItem>
         ))}
       </S.ServiceWrapper>
     </S.Wrapper>
