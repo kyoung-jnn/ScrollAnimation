@@ -1,6 +1,9 @@
 # React Hooks 을 이용한 Scroll Animation 💫
 
-**`Observer Interesction API`** 와 **`useRef Hooks` **사용
+**`Observer Interesction API`** 와 **`useRef Hooks`** 이용하여 Scroll 위치에 따른 애니메이션 구현하기 😎
+
+<br/>
+
 
 ## `Observer Interesction API`
 
