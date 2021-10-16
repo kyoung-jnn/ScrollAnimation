@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import useScrollCount from '@src/hooks/useScrollCount';
 
 const S = {
   Background: styled.section`
@@ -13,7 +14,7 @@ const S = {
   `,
   Count: styled.ul`
     display: flex;
-    padding: 5rem 0 5rem;
+    padding: 8rem 0 8rem;
   `,
   CountItem: styled.li`
     width: 100%;
@@ -21,12 +22,20 @@ const S = {
     padding: 0 2rem;
   `,
   Title: styled.p`
-    font-size: 2rem;
-    font-weight: 800;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: 'Gelasio', serif;
+    margin-top: 1rem;
     color: #fff;
   `,
-  Number: styled.p`
-    font-size: 1.5rem;
+  Number: styled.span`
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: 'Gelasio', serif;
+    color: #fff;
+  `,
+  Unit: styled.span`
+    font-size: 1.3rem;
     font-weight: 500;
     color: #fff;
   `,
@@ -35,32 +44,43 @@ const S = {
 const CountItems = [
   {
     title: 'Vechicle',
-    number: 240,
     description: 'Ipsum faucibus vitae aliquet nec ullamcorper sit amet risus.',
+    unit: '+',
   },
   {
     title: 'Moto',
-    number: 12,
     description:
       'Nisi scelerisque eu ultrices vitae auctor eu augue ut lectus.',
+    unit: '',
   },
   {
     title: 'Percent',
-    number: '80%',
     description:
       'Porttitor rhoncus dolor purus non enim praesent elementum facilisis.',
+    unit: '%',
   },
 ];
 
 const Count = () => {
+  interface Ianimate {
+    [key: number]: unknown;
+  }
+
+  const animatedCount: Ianimate = {
+    0: useScrollCount(0, 10),
+    1: useScrollCount(0, 130),
+    2: useScrollCount(0, 80),
+  };
+
   return (
     <S.Background>
       <S.Wrapper>
         <S.Count>
           {CountItems.map((item, index) => (
             <S.CountItem key={item.title}>
+              <S.Number {...animatedCount[index]}>0</S.Number>
+              <S.Unit>{item.unit}</S.Unit>
               <S.Title>{item.title}</S.Title>
-              <S.Number>{item.number}</S.Number>
             </S.CountItem>
           ))}
         </S.Count>

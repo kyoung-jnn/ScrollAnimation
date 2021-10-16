@@ -8,10 +8,11 @@ const S = {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: auto;
     width: 100%;
-    margin-top: 800px;
     max-width: 1180px;
+    margin: auto;
+    margin-top: 700px;
+    padding: 5rem 0 5rem;
   `,
   Label: styled.p`
     font-size: 1.5rem;
@@ -77,8 +78,9 @@ const ServicesItems = [
 
 const Services = () => {
   interface Ianimate {
-    [key: number]: any;
+    [key: number]: unknown;
   }
+
   const animatedService: Ianimate = {
     0: useScrollFadeIn('up', 1, 0),
     1: useScrollFadeIn('up', 1, 0.2),
